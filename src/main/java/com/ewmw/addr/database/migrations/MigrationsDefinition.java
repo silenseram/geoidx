@@ -1,7 +1,7 @@
 package com.ewmw.addr.database.migrations;
 
 import com.ewmw.addr.database.migrations.kernel.MigrationHolder;
-import com.ewmw.addr.utils.IOHelper;
+import com.ewmw.addr.utils.FilesHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class MigrationsDefinition {
                                 String name = file.getName().replaceAll("\\.sql", "");
 
                                 migrations.put(name, MigrationHolder.create(
-                                        IOHelper.getFileContent(file.getAbsolutePath()),
+                                        FilesHelper.getFileContent(file.getAbsolutePath()),
                                         ""
                                 ));
                             } catch (IOException e) {
