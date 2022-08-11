@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mntcr_addr:
+    image: manticoresearch/manticore
+    domainname: mntcr_addr
+    command: "bash /etc/manticoresearch/docker/entry.sh"
+    ports:
+      - "$MNTCR_MYSQL_PORT:9308"
+      - "$MNTCR_PORT:9306"
+    volumes:
+      - "manticore_data:/var/lib/manticore"
+      - "./morphology/lemmatizer:/usr/share/manticore"
+      - "./manticore.conf:/etc/manticoresearch/manticore.conf"
+      - "./wordforms.txt:/etc/manticoresearch/wordforms.txt"
+      - "./entry.sh:/etc/manticoresearch/docker/entry.sh"
+
+volumes:
+  manticore_data:

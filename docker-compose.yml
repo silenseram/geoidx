@@ -1,0 +1,28 @@
+version: "3"
+
+networks:
+  shared:
+
+services:
+  java_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    domainname: java_backend
+    ports:
+      - "8123:8080"
+  jsql_db:
+    domainname: jsql_db
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: books_db
+      MYSQL_USER: books
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - jbdata:/var/lib/mysql
+    networks:
+      - shared
+
+volumes:
+  jbdata:
