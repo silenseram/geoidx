@@ -6,8 +6,6 @@ import com.ewmw.addr.services.gar.types.HouseTypesService;
 import com.ewmw.addr.services.osm.api.NominatimApiClient;
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.api.SearchApi;
-import org.sphx.api.SphinxClient;
-import org.sphx.api.SphinxException;
 import org.springframework.context.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 import org.xml.sax.SAXException;
