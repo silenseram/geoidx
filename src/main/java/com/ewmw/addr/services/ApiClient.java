@@ -31,8 +31,6 @@ public class ApiClient {
 
         HttpRequest request = builder
                     .uri(URI.create(baseUrl + uri))
-//                .header("Authorization", token)
-//                .header("Content-Type", "application/json")
                 .build();
 
         return client.send(request, HttpResponse.BodyHandlers.ofString());
