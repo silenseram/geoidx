@@ -41,22 +41,9 @@ public class UsersLimitsDumperCommand extends AbstractConsoleCommand {
 
         User user = usersRepository.findById(userId).orElseThrow();
         List<UserLimit> limits = user.getLimits();
-        System.out.println(limits);
-//
-//        Random random = new Random();
-//        User user = new User();
-//        user.setEmail(RandomStringUtils.randomAlphabetic(10) + "@gmail.com");
-//        user.setFirstName("Sanya_" + random.nextInt());
-//        user.setLastName("Kruti_" + random.nextInt());
-//        user.setPassword(RandomStringUtils.randomAlphabetic(10));
-//
-//        UserLimit userLimit = new UserLimit();
-//        userLimit.setLimitId(12);
-//        userLimit.setQueriesLeft(199);
-//        userLimit.setUser(user);
-//
-//        user.setLimits(List.of(userLimit));
-//
-//        usersRepository.save(user);
+
+        limits.forEach(limit ->
+                System.out.println("Limit " + limit.getLimitId() + "has " + limit.getQueriesLeft() + " queries left")
+        );
     }
 }
